@@ -390,6 +390,8 @@ a:hover {
   flex-direction: column;
   padding: 20px;
   align-items: center;
+  width: 110%;
+  margin-left: -10%;
 }
 
 .show-more {
