@@ -18,7 +18,7 @@ export const Cryptocurrencies = ({ simplified }) => {
     setCryptos(filteredData);
   }, [cryptosList, searchTerm]);
 
-  if (isFetching || !cryptos?.length) return <Loader />;
+  if (isFetching || (!cryptos?.length && searchTerm === '')) return <Loader />;
   return (
     <>
       {!simplified && (
@@ -29,6 +29,7 @@ export const Cryptocurrencies = ({ simplified }) => {
           />
         </div>
       )}
+      {!cryptos?.length && searchTerm !== '' && <h2>Tokens Not Found</h2>}
       <Row gutters={[24, 24]}>
         {cryptos?.map((coin) => (
           <Col xs={simplified ? 24 : 19} sm={12} lg={8} className="crypto-card" key={coin.uuid}>
